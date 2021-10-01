@@ -4,14 +4,11 @@ const fs = require("fs");
 module.exports = function (passport, config) {
 
   passport.serializeUser(function (user, done) {
-    console.log("serializeUser")
     console.log(user)
     done(null, user);
   });
 
   passport.deserializeUser(function (user, done) {
-
-    console.log("deserializeUser")
     console.log(user)
     done(null, user);
   });
@@ -26,14 +23,7 @@ module.exports = function (passport, config) {
     },
     function (profile, done) {
 
-      return done(null,
-        {
-          id: profile.uid,
-          email: profile.email,
-          displayName: profile.cn,
-          firstName: profile.givenName,
-          lastName: profile.sn
-        });
+      return done(null, profile);
     })
   );
 
