@@ -16,7 +16,7 @@ require('./config/passport')(passport, config);
 
 var app = express();
 
-app.set('port', config.app.port);
+app.set('port', config.port);
 app.set('views', __dirname + '\\app\\views');
 app.set('view engine', 'jade');
 app.use(morgan('combined'));

@@ -1,4 +1,4 @@
-const { SamlStrategy } = require('passport-saml');
+const { Strategy } = require('passport-saml');
 const fs = require("fs");
 
 module.exports = function (passport, config) {
@@ -16,7 +16,7 @@ module.exports = function (passport, config) {
     done(null, user);
   });
 
-  passport.use(new SamlStrategy(
+  passport.use(new Strategy(
     {
       issuer: config.passport.saml.issuer,
       protocol: 'http://',
